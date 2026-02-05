@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Our Story</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+    * {
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      height: 100vh;
+      background: #ff6f91;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card {
+      background: rgb(231, 122, 164);
+      padding: 30px;
+      border-radius: 12px;
+      width: 320px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      border: 1px black solid;
+      color: white;
+    }
+
+    h1 {
+      font-size: 22px;
+      margin-bottom: 10px;
+      font-family: "Poppins", sans-serif;
+      font-weight: bold;
+    }
+
+    p {
+      font-size: 14px;
+      margin-bottom: 20px;
+      font-family: "Poppins", sans-serif;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      background: #ff6f91;
+      color: white;
+      font-size: 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      border: solid 1px black;
+    }
+
+    button:hover {
+      background: #ff4f7b;
+    }
+
+    .warning {
+      color: white;
+      font-size: 13px;
+      margin-top: 10px;
+      display: none;
+    }
+
+    input {
+      background: #ff6f91;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>anak kecil ku sayang</h1>
+    <p>Masukin tanggal pertama kali kita jadian</p>
+    <input type="date" id="dateInput">
+    <button onclick="checkDate()" >Lanjut</button>
+    <div class="warning" id="warningText">
+      sayang kamu lupa tanggal jadian kita??
+    </div>
+  </div>
+
+  <script>
+    // TANGGAL JADIAN YANG BENAR
+    // GANTI SESUAI PUNYA KAMU
+    const correctDate = "2025-08-06"; // YYYY-MM-DD
+
+    function checkDate() {
+      const inputDate = document.getElementById("dateInput").value;
+      const warning = document.getElementById("warningText");
+
+      if (!inputDate) {
+        warning.innerText = "coba di inget inget lagi sayang";
+        warning.style.display = "block";
+        return;
+      }
+
+      if (inputDate !== correctDate) {
+        warning.innerText = "Tanggal salah. Coba inget lagi ya.";
+        warning.style.display = "block";
+        document.getElementById("dateInput").value = "";
+        return;
+      }
+
+      // kalau benar
+      warning.style.display = "none";
+      localStorage.setItem("anniversary", inputDate);
+      window.location.href = "home.html";
+
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday ❤️</title>
+<style>
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #ff6f91;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.background {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+}
+
+.heart {
+  position: absolute;
+  top: -10%;
+  font-size: 20px;
+  color: rgba(255, 105, 180, 0.8);
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(120vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.content {
+  position: relative;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(8px);
+  padding: 30px 40px;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.content h1 {
+  margin: 0;
+  color: #ff4d94;
+}
+
+.content p {
+  margin-top: 10px;
+  color: #ff6fae;
+}
+</style>
+</head>
+<body>
+
+<div class="background" id="bg"></div>
+
+
+
+<script>
+const bg = document.getElementById("bg");
+
+for (let i = 0; i < 40; i++) {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerText = "💐";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.animationDuration = 5 + Math.random() * 5 + "s";
+  heart.style.fontSize = 14 + Math.random() * 20 + "px";
+  bg.appendChild(heart);
+}
+</script>
+
+</body>
+</html>
